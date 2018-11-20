@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 public class AddToCartForm {
 
-    // private Iterable<Inventory> Inventory;
-
 
     @Min(-1)
     private ArrayList quantity;

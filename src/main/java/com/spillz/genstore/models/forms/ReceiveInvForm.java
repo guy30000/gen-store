@@ -1,13 +1,9 @@
 package com.spillz.genstore.models.forms;
 
-
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 public class ReceiveInvForm {
-
-   // private Iterable<Inventory> Inventory;
 
 
     @Min(-1)

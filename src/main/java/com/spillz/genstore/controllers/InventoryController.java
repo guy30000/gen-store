@@ -2,8 +2,6 @@ package com.spillz.genstore.controllers;
 
 import com.spillz.genstore.models.Inventory;
 import com.spillz.genstore.models.data.InventoryDao;
-import com.spillz.genstore.models.Inventory;
-import com.spillz.genstore.models.data.InventoryDao;
 import com.spillz.genstore.models.forms.ReceiveInvForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -159,11 +157,12 @@ public class InventoryController {
 
     @RequestMapping(value = "view/edit/{itemIdV}", method = RequestMethod.POST)
     public String processViewEditForm(@ModelAttribute @Valid Inventory editItem, Errors errors, Model model, @RequestParam(required = false) int itemId) {
-//        if (errors.hasErrors()) {
-//            model.addAttribute("title", "Veiw/Edit item: ");
-//            model.addAttribute("inventory", editItem);
-//            return "general_Store/Inventory/view";
-//        }
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Veiw/Edit item: ");
+            model.addAttribute("inventory", editItem);
+            model.addAttribute("buttonName", "Save Changes");
+            return "general_Store/Inventory/add";
+        }
 
             editItem.setId(itemId);
             System.out.println("Edit Save - " + editItem.getName() + " - " + itemId + "  -  " + editItem.getDescription() + " - " );

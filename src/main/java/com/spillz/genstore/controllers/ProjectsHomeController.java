@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class ProjectsHomeController {
     //Displays the Home page of the entire app
+    // Used when multiple sub-projects are used
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", "Select an App");

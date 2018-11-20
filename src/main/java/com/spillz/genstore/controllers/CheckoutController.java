@@ -3,7 +3,6 @@ package com.spillz.genstore.controllers;
 import com.spillz.genstore.models.Inventory;
 import com.spillz.genstore.models.Invoice;
 import com.spillz.genstore.models.data.InventoryDao;
-
 import com.spillz.genstore.models.data.InvoicesDao;
 import com.spillz.genstore.models.forms.AddToCartForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,29 +67,20 @@ public class CheckoutController {
                         int purchaseQuantity = Integer.valueOf((String) addToCartForm.getQuantity().get(i));
                         Inventory itemToBeUpdated = inventoryDao.findOne(idOfCurrentItem);
                         Inventory itemToBeUpdated2 = inventoryDao.findOne(idOfCurrentItem2);//delet this line it is for testing
-
                         itemToBeUpdated.setStock(itemToBeUpdated.getStock() + purchaseQuantity);
-                       // inventoryDao.save(itemToBeUpdated);
-                        ///Tinkiring with invoice
-
-
                         Calendar cal = Calendar.getInstance();
                         String currentTimeAndSate = ((cal.get(Calendar.MONTH) + 1 ) +"/"+ (cal.get(Calendar.DAY_OF_MONTH)) +"/"+ cal.get(Calendar.YEAR) +" "+ cal.get(Calendar.HOUR_OF_DAY) +":"+cal.get(Calendar.MINUTE));;
-
                         Invoice testInvoice =  new Invoice();
                         testInvoice.setTimeAndDate(currentTimeAndSate);
-                       // testInvoice.setItemsInCart();
                         testInvoice.addInvItem(itemToBeUpdated);
                         testInvoice.addInvItem(itemToBeUpdated);
                         testInvoice.addInvItem(itemToBeUpdated2);
                         System.out.println("Test invoice test- " + testInvoice.getItemsInCart());
-                       // InvoicesDao.save(testInvoice);
-                        // Changed things oon Invoice
-                        ///end tinker with invoice
-                        //thisInvoice.setItemsInCart .add(addToCartForm.getItemId().get(i));
                     }
 
-                }}}
+                }
+            }
+        }
                     ///////////////////////////////// End Add to cart function ^
 
 

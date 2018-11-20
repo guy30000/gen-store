@@ -38,7 +38,7 @@ public class Inventory {
 
 
 
-    @ManyToMany(mappedBy = "itemsInCart")  //3:00 p1
+    @ManyToMany(mappedBy = "itemsInCart")
     private List<Invoice> cart;
 
     ///
