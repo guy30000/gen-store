@@ -62,28 +62,12 @@ public class CheckoutController {
                         System.out.println("Null skipping");
                         continue;
                     } else {
-                        int idOfCurrentItem = Integer.valueOf((String) addToCartForm.getItemId().get(i));
-                        int idOfCurrentItem2 = Integer.valueOf((String) addToCartForm.getItemId().get(5)); //delet this line it is for testing
-                        int purchaseQuantity = Integer.valueOf((String) addToCartForm.getQuantity().get(i));
-                        Inventory itemToBeUpdated = inventoryDao.findOne(idOfCurrentItem);
-                        Inventory itemToBeUpdated2 = inventoryDao.findOne(idOfCurrentItem2);//delet this line it is for testing
-                        itemToBeUpdated.setStock(itemToBeUpdated.getStock() + purchaseQuantity);
-                        Calendar cal = Calendar.getInstance();
-                        String currentTimeAndSate = ((cal.get(Calendar.MONTH) + 1 ) +"/"+ (cal.get(Calendar.DAY_OF_MONTH)) +"/"+ cal.get(Calendar.YEAR) +" "+ cal.get(Calendar.HOUR_OF_DAY) +":"+cal.get(Calendar.MINUTE));;
-                        Invoice testInvoice =  new Invoice();
-                        testInvoice.setTimeAndDate(currentTimeAndSate);
-                        testInvoice.addInvItem(itemToBeUpdated);
-                        testInvoice.addInvItem(itemToBeUpdated);
-                        testInvoice.addInvItem(itemToBeUpdated2);
-                        System.out.println("Test invoice test- " + testInvoice.getItemsInCart());
+                        System.out.println("Test invoice test- ");
                     }
-
                 }
             }
         }
                     ///////////////////////////////// End Add to cart function ^
-
-
                     model.addAttribute("title", "");
                     model.addAttribute("inventory", inventoryDao.findAll());
                     return "general_Store/Checkout/checkout";

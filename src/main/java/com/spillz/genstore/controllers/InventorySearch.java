@@ -17,7 +17,6 @@ public class InventorySearch {
             if (singleItem.getName().toLowerCase().contains(keyword.toLowerCase()) || singleItem.getVendor().toLowerCase().contains(keyword.toLowerCase()) || singleItem.getSku().equalsIgnoreCase(keyword)) {
                 searchResults.add(singleItem);
             }
-          //  return searchResults;
         }
     }
 }

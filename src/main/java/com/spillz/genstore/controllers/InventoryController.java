@@ -74,21 +74,6 @@ public class InventoryController {
             return "general_Store/Inventory/receive";
         }
         /////////////////////////////////// End Search FUnction^
-        /////////////////////////////////// Sort by...
-//        System.out.println("Sort Inv by -  " + sortBy);
-//        if (sortBy.equals("Name")) {
-//            //https://stackoverflow.com/questions/5279570/sql-phpmyadmin-alter-table-order-by-id-ascending-make-permanent
-//            String sqlSortQuery =
-//                    "SELECT  * FROM inventoryDao.findAll() ORDER BY `ID` ASC";
-//
-//            //SELECT statement... [WHERE condition | GROUP BY `field_name(s)` HAVING condition] ORDER BY `field_name(s)` [ASC | DESC];
-//
-//            System.out.println("Sort Inv by - n --- " + sortBy);
-//            model.addAttribute("title", "");
-//            model.addAttribute("inventory", inventoryDao.findAll());
-//            return "general_Store/Inventory/receive";
-//        }
-        /////////////////////////////////// end sort buy ^
         /////////////////////////////////// Receive Inventory
         if (addInv != null && addInv.equals("Add Inventory")) {
             if (recForm.getItemId().size() == recForm.getQuantity().size()) {
@@ -118,7 +103,6 @@ public class InventoryController {
         return "general_Store/Inventory/receive";
     }
 
-    //////////////////////////////View
     @RequestMapping(value = "view", method = RequestMethod.GET)
     public String displayViewInv(Model model) {
         model.addAttribute("title", "");
